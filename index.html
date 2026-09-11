@@ -623,170 +623,231 @@ a:hover {
   gap: var(--space-3);
 }
 
-/* Executive Card Aside */
+/* ==========================================================================
+   Fayez Majrashi Standard Executive Profile Card
+   ========================================================================== */
+.fayez-profile-card,
 .executive-card {
   background: #ffffff;
-  border-radius: var(--radius-xl);
-  padding: var(--space-7);
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.1), 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  overflow: hidden;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
   position: relative;
-  transition: box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
+.fayez-profile-card:hover,
 .executive-card:hover {
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -10px rgba(15, 23, 42, 0.15), 0 8px 24px -4px rgba(15, 23, 42, 0.08);
 }
 
-.exec-card-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  padding-bottom: var(--space-5);
-  border-bottom: 1px solid var(--bg-tertiary);
-  margin-bottom: var(--space-5);
-}
-
-.exec-avatar {
+.fpc-photo-wrapper {
   position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #042646 0%, #0F172A 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #ffffff;
-  box-shadow: 0 4px 12px rgba(4, 38, 70, 0.25);
-  flex-shrink: 0;
+  width: 100%;
+  height: 375px;
+  background: #EAEFF5;
+  overflow: hidden;
 }
 
-.exec-initials {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--color-primary);
+.fpc-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 0%;
+  display: block;
 }
 
-.exec-badge-cert {
+.fpc-gradient-overlay {
   position: absolute;
-  bottom: -6px;
-  right: -6px;
-  background: var(--color-primary);
-  color: #0F172A;
-  font-size: 9px;
-  font-weight: 800;
-  padding: 2px 5px;
-  border-radius: 4px;
-  border: 1.5px solid #ffffff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 45%, #ffffff 100%);
+  pointer-events: none;
 }
 
-.exec-title-group {
-  flex: 1;
-}
-
-.exec-name {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.exec-role {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.exec-location {
+/* Floating Status Pill (Top Left) */
+.fpc-status-pill {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  font-weight: 600;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  z-index: 2;
 }
 
-.exec-card-body {
+.fpc-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.fpc-status-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.1px;
+}
+
+/* Floating Logo Badge (Top Right) */
+.fpc-logo-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 4px 7px 5px 7px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-5);
-}
-
-.exec-info-row {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 12.5px;
-  padding: 6px 0;
-  border-bottom: 1px dashed rgba(221, 229, 238, 0.7);
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  z-index: 2;
+  min-width: 44px;
 }
 
-.exec-info-row:last-child {
-  border-bottom: none;
+.fpc-logo-text {
+  font-size: 8px;
+  font-weight: 800;
+  color: #004B87;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+  line-height: 1;
 }
 
-.info-label {
-  color: var(--text-muted);
+/* Card Body */
+.fpc-body {
+  padding: 0 22px 20px 22px;
+  text-align: center;
+  position: relative;
+  margin-top: -12px;
+  background: #ffffff;
+}
+
+.fpc-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.2px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.fpc-role {
+  font-size: 13px;
   font-weight: 600;
+  color: #334155;
+  margin-bottom: 5px;
+  line-height: 1.35;
 }
 
-.info-val-action {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.info-val {
-  color: var(--text-primary);
-  font-weight: 700;
-  text-align: right;
-}
-
-.copy-btn {
-  background: transparent;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-xs);
-  padding: 3px 5px;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast);
-}
-
-.copy-btn:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border-color: #cbd5e1;
-}
-
-.exec-card-footer {
-  padding-top: var(--space-2);
-}
-
-.btn-linkedin-exec {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  width: 100%;
-  padding: 9px 12px;
-  background-color: #0A66C2;
-  color: #ffffff;
-  border-radius: var(--radius-md);
+.fpc-credentials {
   font-size: 12px;
   font-weight: 700;
-  text-decoration: none;
-  transition: background-color var(--transition-fast);
+  color: #0D9488;
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
 }
 
-.btn-linkedin-exec:hover {
-  background-color: #084e96;
-  color: #ffffff;
+/* 3-Col Stats Row */
+.fpc-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 12px 0;
+  margin-bottom: 16px;
+}
+
+.fpc-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fpc-stat-val {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+
+.fpc-val-gold {
+  color: #D97706;
+}
+
+.fpc-val-teal {
+  color: #0D9488;
+}
+
+.fpc-stat-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Links Row */
+.fpc-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fpc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.fpc-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.85;
+}
+
+.fpc-link-email {
+  color: #0F172A;
+}
+
+.fpc-link-wa {
+  color: #059669;
+}
+
+.fpc-link-li {
+  color: #0A66C2;
+}
+
+.fpc-dot-sep {
+  color: #CBD5E1;
+  font-size: 14px;
 }
 
 /* ==========================================================================
@@ -2529,86 +2590,67 @@ a:hover {
           </div>
         </div>
 
-        <!-- Hero Aside Executive Info Card -->
+        <!-- Hero Aside Executive Info Card (Fayez Majrashi Design Standard) -->
         <div class="hero-aside">
-          <div class="executive-card">
-            <div class="exec-card-header">
-              <div class="exec-avatar">
-                <span class="exec-initials">MA</span>
-                <span class="exec-badge-cert">PMP®</span>
+          <div class="fayez-profile-card">
+            <div class="fpc-photo-wrapper">
+              <img src="assets/manimaran-profile.jpg" alt="Manimaran Arunachalam" class="fpc-photo" loading="eager">
+              <div class="fpc-gradient-overlay"></div>
+              
+              <!-- Floating Top Left Pill -->
+              <div class="fpc-status-pill">
+                <span class="fpc-status-dot"></span>
+                <span class="fpc-status-text">Civil & Structural PM</span>
               </div>
-              <div class="exec-title-group">
-                <h3 class="exec-name">Manimaran Arunachalam</h3>
-                <p class="exec-role">Civil & Structural Engineering Lead</p>
-                <span class="exec-location">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  Dammam / Jeddah, Saudi Arabia
-                </span>
-              </div>
-            </div>
-
-            <div class="exec-card-body">
-              <div class="exec-info-row">
-                <span class="info-label">Direct Mobile</span>
-                <div class="info-val-action">
-                  <span class="info-val font-mono">+966 53 186 9225</span>
-                  <button class="copy-btn" data-copy="+966531869225" title="Copy Saudi Phone">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  </button>
-                </div>
-              </div>
-
-              <div class="exec-info-row">
-                <span class="info-label">Alt Mobile (India)</span>
-                <div class="info-val-action">
-                  <span class="info-val font-mono">+91 99529 92960</span>
-                  <button class="copy-btn" data-copy="+919952992960" title="Copy India Phone">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  </button>
-                </div>
-              </div>
-
-              <div class="exec-info-row">
-                <span class="info-label">Primary Email</span>
-                <div class="info-val-action">
-                  <span class="info-val font-mono">maranse03@gmail.com</span>
-                  <button class="copy-btn" data-copy="maranse03@gmail.com" title="Copy Email">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  </button>
-                </div>
-              </div>
-
-              <div class="exec-info-row">
-                <span class="info-label">Alt Email</span>
-                <div class="info-val-action">
-                  <span class="info-val font-mono">mmscivil84@gmail.com</span>
-                  <button class="copy-btn" data-copy="mmscivil84@gmail.com" title="Copy Email">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  </button>
-                </div>
-              </div>
-
-              <div class="exec-info-row">
-                <span class="info-label">Driving Licenses</span>
-                <span class="info-val">Valid Saudi Arabia & UAE</span>
-              </div>
-
-              <div class="exec-info-row">
-                <span class="info-label">Languages</span>
-                <span class="info-val">English • Arabic (Working) • Hindi • Tamil • Malayalam</span>
-              </div>
-
-              <div class="exec-info-row">
-                <span class="info-label">Nationality</span>
-                <span class="info-val">Indian</span>
+              
+              <!-- Floating Top Right Badge -->
+              <div class="fpc-logo-badge" title="Saudi Aramco PMT Approved">
+                <svg width="22" height="22" viewBox="0 0 36 36" fill="none">
+                  <path d="M10 20C10 14 14.5 9.5 21 9.5C24.8 9.5 28 11.5 29.8 14.8C28.2 13.2 25.5 12 22.5 12C17 12 13 16 13 21.5C13 24.5 14.2 27.2 16 28.8C12.5 27 10 24 10 20Z" fill="#00A3E0"/>
+                  <path d="M26 16C26 22 21.5 26.5 15 26.5C11.2 26.5 8 24.5 6.2 21.2C7.8 22.8 10.5 24 13.5 24C19 24 23 20 23 14.5C23 11.5 21.8 8.8 20 7.2C23.5 9 26 12 26 16Z" fill="#78BE20"/>
+                </svg>
+                <span class="fpc-logo-text">aramco</span>
               </div>
             </div>
-
-            <div class="exec-card-footer">
-              <a href="https://www.linkedin.com/in/Manimaran-Arunachalam" target="_blank" rel="noopener noreferrer" class="btn-linkedin-exec">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.763z"/></svg>
-                <span>linkedin.com/in/Manimaran-Arunachalam</span>
-              </a>
+            
+            <div class="fpc-body">
+              <h3 class="fpc-name">MANIMARAN ARUNACHALAM</h3>
+              <p class="fpc-role">Sr. Construction & Structural PM • Saudi Aramco PMT</p>
+              <p class="fpc-credentials">PMP® • SAES/SAMSS • Civil Eng. Specialist</p>
+              
+              <!-- 3-Column Stats Matrix -->
+              <div class="fpc-stats-row">
+                <div class="fpc-stat-item">
+                  <span class="fpc-stat-val">23+ Yrs</span>
+                  <span class="fpc-stat-label">EXPERIENCE</span>
+                </div>
+                <div class="fpc-stat-item">
+                  <span class="fpc-stat-val fpc-val-gold">SAR 10B+</span>
+                  <span class="fpc-stat-label">MEGAPROJECTS</span>
+                </div>
+                <div class="fpc-stat-item">
+                  <span class="fpc-stat-val fpc-val-teal">Global</span>
+                  <span class="fpc-stat-label">MOBILITY</span>
+                </div>
+              </div>
+              
+              <!-- Quick Contact Actions -->
+              <div class="fpc-links-row">
+                <a href="mailto:maranse03@gmail.com" class="fpc-link fpc-link-email" title="Send Email">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <span>Email</span>
+                </a>
+                <span class="fpc-dot-sep">•</span>
+                <a href="https://wa.me/966531869225" target="_blank" rel="noopener noreferrer" class="fpc-link fpc-link-wa" title="WhatsApp Message">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  <span>WhatsApp</span>
+                </a>
+                <span class="fpc-dot-sep">•</span>
+                <a href="https://www.linkedin.com/in/Manimaran-Arunachalam" target="_blank" rel="noopener noreferrer" class="fpc-link fpc-link-li" title="LinkedIn Profile">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.763z"/></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -3956,7 +3998,6 @@ a:hover {
 
       <div class="footer-bottom">
         <p>© 2026 Manimaran Arunachalam. All rights reserved. Open to executive opportunities in GCC & Europe.</p>
-        <p class="footer-credit">Built strictly with the Fayez Majrashi Design System standard.</p>
       </div>
     </div>
   </footer>
